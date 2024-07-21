@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: password-validation
+  labels:
+    app: password-validation
+spec:
+  selector:
+    app: password-validation
+  ports:
+    - name: web
+      port: 8080

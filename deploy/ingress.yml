@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: password-validation-ingress
+spec:
+  rules:
+    - host: api.password-validation.tk
+      http:
+        paths:
+          - backend:
+              serviceName: password-validation
+              servicePort: 8080

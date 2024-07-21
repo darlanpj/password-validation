@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: password-validation
+  namespace: default
+  labels:
+    app: password-validation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: password-validation
+  template:
+    metadata:
+      labels:
+        app: password-validation
+    spec:
+      containers:
+        - name: password-validation
+          image: djambersi/password-validation:0.0.1
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "512M"
+          ports:
+            - name: web
+              containerPort: 8080
