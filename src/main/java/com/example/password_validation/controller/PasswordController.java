@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.swing.*;
+
 @RestController
 @RequestMapping("/api/v1")
 public class PasswordController {
@@ -22,7 +24,7 @@ public class PasswordController {
 
     @PostMapping("/validation/password")
     public ResponseEntity<Boolean> validatePassword(@RequestBody Password password) {
-        LOG.info("Request: " + password.toString());
+        LOG.info("Request: " + password.getPassword());
         return ResponseEntity.ok(passwordService.passwordValidation(password));
     }
 }

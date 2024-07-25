@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.IntPredicate;
-import java.util.regex.Pattern;
 
 @Service
 public class PasswordService implements PasswordRules {
@@ -20,12 +19,12 @@ public class PasswordService implements PasswordRules {
     public boolean passwordValidation(Password password) {
         try {
 
-            LOG.info("validatePasswordLength: " + validatePasswordLength(password.getPassword()));
-            LOG.info("validatePasswordAtLeastOneDigit: " + validatePasswordAtLeastOneDigit(password.getPassword()));
-            LOG.info("validatePasswordAtLeastOneUppercaseLetter: " + validatePasswordAtLeastOneUppercaseLetter(password.getPassword()));
-            LOG.info("validatePasswordAtLeastOneLowercaseLetter: " + validatePasswordAtLeastOneLowercaseLetter(password.getPassword()));
-            LOG.info("validatePasswordAtLeastOneSpecialCharacter: " + validatePasswordAtLeastOneSpecialCharacter(password.getPassword()));
-            LOG.info("validateNoRepeatedCharacters: " + validateNoRepeatedCharacters(password.getPassword()));
+            LOG.debug("validatePasswordLength: " + validatePasswordLength(password.getPassword()));
+            LOG.debug("validatePasswordAtLeastOneDigit: " + validatePasswordAtLeastOneDigit(password.getPassword()));
+            LOG.debug("validatePasswordAtLeastOneUppercaseLetter: " + validatePasswordAtLeastOneUppercaseLetter(password.getPassword()));
+            LOG.debug("validatePasswordAtLeastOneLowercaseLetter: " + validatePasswordAtLeastOneLowercaseLetter(password.getPassword()));
+            LOG.debug("validatePasswordAtLeastOneSpecialCharacter: " + validatePasswordAtLeastOneSpecialCharacter(password.getPassword()));
+            LOG.debug("validateNoRepeatedCharacters: " + validateNoRepeatedCharacters(password.getPassword()));
 
             return validatePasswordLength(password.getPassword())
                     && validatePasswordAtLeastOneDigit(password.getPassword())
@@ -79,18 +78,20 @@ public class PasswordService implements PasswordRules {
                         '~', '[', ']', '{', '}', '´', '`', '_', '='));
 
         for (char i : password.toCharArray()) {
-            if (specialChars.contains(i))
+            if (specialChars.contains(i)) {
                 flagSpecialCharacter = true;
+            }
         }
 
         for (char i : password.toCharArray()) {
-            if (notSpecialChars.contains(i))
+            if (notSpecialChars.contains(i)) {
                 flagNotSpecialCharacter = false;
+            }
         }
         return flagSpecialCharacter && flagNotSpecialCharacter;
     }
 
-/*    public boolean validatePasswordAtLeastOneSpecialCharacterV2(String password) {
+    /*    public boolean validatePasswordAtLeastOneSpecialCharacterV2(String password) {
         Pattern pattern = Pattern.compile("[!@#$%^&*()-+]");
         LOG.info("FIND: " + pattern.matcher(password).find());
         return pattern.matcher(password).find();
