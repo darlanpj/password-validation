@@ -9,4 +9,4 @@ spec:
         paths:
           - backend:
               serviceName: password-validation
-              servicePort: 8080
+              servicePort: 9090

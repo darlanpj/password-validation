@@ -24,4 +24,4 @@ spec:
               memory: "512M"
           ports:
             - name: web
-              containerPort: 8080
+              containerPort: 9090
