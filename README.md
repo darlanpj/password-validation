@@ -28,4 +28,4 @@ http://localhost:9090/swagger-ui/index.html
 
 Cobertura de tests:
 
-![Screenshot from 2024-07-24 23-19-06.png](..%2F..%2FPictures%2FScreenshots%2FScreenshot%20from%202024-07-24%2023-19-06.png)
+![Screenshot from 2024-07-24 23-19-06](https://github.com/user-attachments/assets/2a65b1ba-1cdb-488a-b586-3fe33000bc91)
